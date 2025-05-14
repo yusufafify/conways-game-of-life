@@ -3,6 +3,7 @@ import { gsap } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger"; // ← default import, not named
 import { ChevronDown } from "lucide-react";
 import PixelTitleAnimation from "./PixelTitleAnimation";
+import { Link } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger); // ← register once at module scope
 
@@ -87,7 +88,7 @@ export default function GameOfLifeHero() {
         </div>
         <p
           ref={subtitleRef}
-          className="text-xl md:text-2xl text-white max-w-3xl mx-auto font-medium drop-shadow-[0_1px_3px_rgba(0,0,0,0.7)]"
+          className="sm:text-xl text-base lg:text-2xl text-white max-w-3xl mx-auto font-medium drop-shadow-[0_1px_3px_rgba(0,0,0,0.7)]"
         >
           <span className="inline-block">
             Discover the fascinating world of cellular automata
@@ -96,6 +97,16 @@ export default function GameOfLifeHero() {
             where simple rules create complex patterns
           </span>{" "}
           <span className="inline-block">and emergent behavior.</span>
+          <br />
+          <Link
+            to={"/simulation"}
+            className="mt-2 relative inline-flex items-center justify-center px-8 py-3 min-w-[140px] rounded-xl "
+          >
+            <span className="relative z-10 flex items-center gap-2 hover:underline ">
+              Try Now <span aria-hidden="true">→</span>
+            </span>
+            <span className="absolute inset-0 bg-white/10 opacity-0 hover:opacity-20 transition-opacity duration-200 rounded-xl" />
+          </Link>
         </p>
       </div>
       <div
