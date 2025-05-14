@@ -1,7 +1,6 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { useWindowSize } from "@/hooks/use-window-size";
 
 interface PixelTitleAnimationProps {
@@ -24,7 +23,6 @@ export default function PixelTitleAnimation({
   onAnimationComplete,
 }: PixelTitleAnimationProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [isAnimationComplete, setIsAnimationComplete] = useState(false);
   const windowSize = useWindowSize();
   const pixelSize = 2; // Size of each "pixel" in our animation
   const animationSpeed = 2000; // Pixels to process per second
@@ -71,7 +69,6 @@ export default function PixelTitleAnimation({
     ctx.textBaseline = "middle";
 
     // Measure text to center it
-    const textWidth = ctx.measureText(text).width;
     const x = canvas.width / 2;
     const y = canvas.height / 2;
 
@@ -142,7 +139,6 @@ export default function PixelTitleAnimation({
         requestAnimationFrame(animate);
       } else {
         // Animation complete
-        setIsAnimationComplete(true);
         onAnimationComplete?.();
 
         // Redraw the text clearly at the end for crisp appearance
