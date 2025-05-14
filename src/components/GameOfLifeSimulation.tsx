@@ -86,9 +86,7 @@ const GameOfLifeSimulation = () => {
     }
   };
   return (
-    <div className="h-screen w-screen flex items-center p-4 flex-col gap-4 relative">
-      <div className="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"></div>
-      <h1 className="md:text-2xl text-xl">Conway's Game of Life</h1>
+    <div className="h-screen w-screen flex items-center p-4  flex-col gap-4 relative ">
       <div className="flex gap-4 items-center">
         <PlayPauseButton
           onClick={() => {
@@ -123,15 +121,16 @@ const GameOfLifeSimulation = () => {
           clear
         </Button>
         <Select
-          label="speed selector"
+          label="Speed selector"
           value={speed}
-          onChange={(e) => setSpeed(parseInt(e.target.value))}
-        >
-          <option value={1000}>Slow</option>
-          <option value={500}>Medium</option>
-          <option value={100}>Fast</option>
-          <option value={50}>Lightning</option>
-        </Select>
+          onChange={(val) => setSpeed(Number(val))}
+          options={[
+            { value: 1000, label: "Slow" },
+            { value: 500, label: "Medium" },
+            { value: 100, label: "Fast" },
+            { value: 50, label: "Lightning" },
+          ]}
+        />
       </div>
       <div
         style={{
