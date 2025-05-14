@@ -53,12 +53,12 @@ export default function Select({
   const selectedLabel = options.find((o) => o.value === value)?.label || label;
 
   return (
-    <div className="relative inline-block w-40">
+    <div className="relative inline-block w-full sm:w-40">
       <button
         type="button"
         onClick={() => setOpen(!open)}
         aria-label={label}
-        className="w-full bg-gray-700 text-gray-200 px-4 py-2 rounded-xl flex justify-between items-center hover:bg-gray-600 transition"
+        className="w-full bg-gray-700 text-gray-200 px-4 py-2 rounded-xl flex justify-between items-center hover:bg-gray-600 transition text-sm md:text-base"
       >
         <span>{selectedLabel}</span>
         <ChevronDown

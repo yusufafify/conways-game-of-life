@@ -87,51 +87,50 @@ const GameOfLifeSimulation = () => {
   };
   return (
     <div className="h-screen w-screen flex items-center p-4  flex-col gap-4 relative ">
-      <div className="flex gap-4 items-center">
-        <PlayPauseButton
-          onClick={() => {
-            setIsPlaying(!isPlaying);
-            if (!isPlaying) {
-              playingRef.current = true;
-              //run simulation
-              runGameOfLife();
-            }
-          }}
-          isPlaying={isPlaying}
-        />
-        <Button
-          onClick={() => {
-            const rows = [];
-            for (let i = 0; i < ROWS; i++) {
-              rows.push(
-                Array.from(Array(COLS), () => (Math.random() > 0.75 ? 1 : 0))
-              );
-            }
-            setGrid(rows);
-          }}
-        >
-          seed
-        </Button>
-        <Button
-          onClick={() => {
-            setIsPlaying(false);
-            setGrid(createEmptyGrid());
-          }}
-        >
-          clear
-        </Button>
-        <Select
-          label="Speed selector"
-          value={speed}
-          onChange={(val) => setSpeed(Number(val))}
-          options={[
-            { value: 1000, label: "Slow" },
-            { value: 500, label: "Medium" },
-            { value: 100, label: "Fast" },
-            { value: 50, label: "Lightning" },
-          ]}
-        />
-      </div>
+    <div className="flex flex-wrap gap-2 md:gap-4 items-center justify-center">
+  <PlayPauseButton
+    onClick={() => {
+      setIsPlaying(!isPlaying);
+      if (!isPlaying) {
+        playingRef.current = true;
+        runGameOfLife();
+      }}
+    }
+    isPlaying={isPlaying}
+  />
+  <Button
+    onClick={() => {
+      const rows = [];
+      for (let i = 0; i < ROWS; i++) {
+        rows.push(
+          Array.from(Array(COLS), () => (Math.random() > 0.75 ? 1 : 0))
+        );
+      }
+      setGrid(rows);
+    }}
+  >
+    seed
+  </Button>
+  <Button
+    onClick={() => {
+      setIsPlaying(false);
+      setGrid(createEmptyGrid());
+    }}
+  >
+    clear
+  </Button>
+  <Select
+    label="Speed selector"
+    value={speed}
+    onChange={(val) => setSpeed(Number(val))}
+    options={[
+      { value: 1000, label: "Slow" },
+      { value: 500, label: "Medium" },
+      { value: 100, label: "Fast" },
+      { value: 50, label: "Lightning" },
+    ]}
+  />
+</div>
       <div
         style={{
           display: "grid",

@@ -11,7 +11,7 @@ const PlayPauseButton = ({
   return (
     <button
       className={twMerge(
-        "transition ease-in flex items-center justify-center h-8 w-8 rounded-full shadow-md",
+        "transition ease-in flex items-center justify-center h-10 w-10 md:h-8 md:w-8 rounded-full shadow-md",
         isPlaying
           ? "bg-gray-700 hover:bg-gray-800"
           : "bg-green-500 hover:bg-green-700"
