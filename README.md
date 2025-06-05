@@ -52,8 +52,8 @@ Visit the application at [conways-game-of-life-rust.vercel.app](https://conways-
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/conway-game-of-life.git
-cd conway-game-of-life
+git clone https://github.com/yusufafify/conways-game-of-life.git
+cd conways-game-of-life
 ```
 
 2. Install dependencies:
