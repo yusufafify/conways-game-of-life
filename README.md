@@ -1,54 +1,101 @@
-# React + TypeScript + Vite
+# Conway's Game of Life
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Conway's Game of Life](public/logo.png)
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Conway's Game of Life is an interactive web application that simulates John Conway's famous cellular automaton. This zero-player game evolves based on its initial state and a simple set of rules, creating fascinating emergent patterns and behaviors from simple local interactions.
 
-## Expanding the ESLint configuration
+The simulation runs on a grid where each cell can be either alive or dead. The state of each cell in the next generation is determined by its current state and the number of live neighbors according to specific rules.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Live Demo
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+Visit the application at [conways-game-of-life-rust.vercel.app](https://conways-game-of-life-rust.vercel.app)
+
+## Features
+
+- **Interactive Grid**: Click on cells to toggle their state (alive/dead)
+- **Playback Controls**: Start, pause, and reset the simulation
+- **Speed Control**: Adjust simulation speed from slow to lightning-fast
+- **Random Seeding**: Generate random initial patterns
+- **Responsive Design**: Adapts to different screen sizes
+- **Educational Content**: Learn about Conway's Game of Life, its rules, and its significance
+- **Pattern Library**: Explore classic patterns like Blinkers, Gliders, and Gosper Glider Guns
+- **Smooth Animations**: Enhanced user experience with GSAP animations
+
+## Game Rules
+
+1. Any live cell with fewer than two live neighbors dies (underpopulation)
+2. Any live cell with two or three live neighbors survives
+3. Any live cell with more than three live neighbors dies (overpopulation)
+4. Any dead cell with exactly three live neighbors becomes alive (reproduction)
+
+## Technologies
+
+- **React 19**: Modern component-based UI library
+- **TypeScript**: Type-safe JavaScript for robust code
+- **Vite**: Fast, modern frontend build tool
+- **React Router**: Client-side routing between landing page and simulation
+- **TailwindCSS**: Utility-first CSS framework for responsive design
+- **GSAP**: Professional animation library for smooth transitions and effects
+- **Lucide React**: Beautiful, consistent SVG icons
+
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 20.x or higher
+- npm 10.x or higher
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/conway-game-of-life.git
+cd conway-game-of-life
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+2. Install dependencies:
+```bash
+npm install
 ```
+
+3. Start the development server:
+```bash
+npm run dev
+```
+
+4. Open your browser and navigate to `http://localhost:5173`
+
+### Building for Production
+
+```bash
+npm run build
+```
+
+The build artifacts will be stored in the `dist/` directory.
+
+## How to Use
+
+1. Navigate to the Simulation page
+2. Click on cells to toggle them between alive (purple) and dead (dark)
+3. Use the play button to start the simulation
+4. Adjust the speed using the dropdown menu
+5. Click 'seed' to generate a random pattern
+6. Click 'clear' to reset the grid
+
+## Educational Value
+
+Conway's Game of Life demonstrates how complex patterns and behaviors can emerge from simple rules. It has applications in various fields including:
+
+- Computer science (cellular automata)
+- Mathematics (pattern formation)
+- Biology (population dynamics)
+- Artificial intelligence (emergent behavior)
+- Physics (self-organizing systems)
+
+## Acknowledgments
+
+- John Horton Conway for inventing the Game of Life
+- The React and TypeScript communities for their excellent tools
